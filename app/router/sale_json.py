@@ -1,32 +1,22 @@
+from fastapi import APIRouter
 from fastapi import FastAPI,Query,HTTPException,status
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
 from pathlib import Path
 import json
 import math
-from Data.schemas import sort,getSingle,getFilterDataS,getDataByRange,getItemsByFilter
+from app.schemas import sort,getSingle,getFilterDataS,getDataByRange,getItemsByFilter
 from typing import Annotated
 
 
-app=FastAPI()  
+router = APIRouter(
+    prefix="/json",
+    tags=["Json"]
+)
 
-# DATABASE_URL = "sqlite:///./app.db"
 
 
-   
-    
 
-# engine=create_engine(DATABASE_URL)
-# session=sessionmaker(autocommit=False,autoflush=False ,bind=engine)
-# def get_db():
-#     db=session()
-#     try:
-#         yield db
-#     finally:
-#         db.close()
-
-    
-Data_File = Path("data/item.json")
+  
+Data_File = Path("json/item.json")
 def loadData ():
     if Data_File.exists():
         with open(Data_File,"r") as f:
@@ -34,9 +24,7 @@ def loadData ():
     return[]
 
 
-def saveData (data):
-    with open(Data_File ,"w") as f:
-        json.dump(data,f,indent=4)
+
 def haveSine(lat1,log1,lat2,log2):
     ER=6371.0
     lat1=math.radians(lat1)
@@ -52,7 +40,7 @@ def haveSine(lat1,log1,lat2,log2):
 
     distance = ER* c
     return distance
-@app.get("/sales")
+@router.get("/sales")
 def getSortedPrice(Q:Annotated[sort,Query()]):
     try:
         data=loadData()
@@ -66,7 +54,7 @@ def getSortedPrice(Q:Annotated[sort,Query()]):
     return sorted_data
 
 
-@app.get("/sales/getsingle")
+@router.get("/sales/getsingle")
 def getSingleItem(Q:Annotated[getSingle,Query()]):
     try:
         data=loadData()
@@ -91,7 +79,7 @@ def getSingleItem(Q:Annotated[getSingle,Query()]):
                     return item
  
 
-@app.get("/sales/getFilterData")
+@router.get("/sales/getFilterData")
 def getFilterData(Q:Annotated[getFilterDataS,Query()]):
     try:
         data=loadData()
@@ -117,7 +105,7 @@ def getFilterData(Q:Annotated[getFilterDataS,Query()]):
         return filter_item
     
 
-@app.get("/sales/getDataBasedOnRadius")
+@router.get("/sales/getDataBasedOnRadius")
 def getDataBasedOnRange(Q:Annotated[getDataByRange,Query()]):
     try:
         data=loadData()
@@ -138,7 +126,7 @@ def getDataBasedOnRange(Q:Annotated[getDataByRange,Query()]):
                 filter_item_by_radius.append(item)
     return filter_item_by_radius
 
-@app.get("/sales/getItemByFilter")
+@router.get("/sales/getItemByFilter")
 def getItemByFilter(Q:Annotated[getItemsByFilter,Query()]):
     try:
         data = loadData()  

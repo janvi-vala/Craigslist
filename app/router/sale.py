@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, status,Query
 from sqlalchemy.orm import Session
 from sqlalchemy import Float, and_,or_
 
-from Data import Models
-from Data.database import get_db
-from Data.schemas import sort,getSingle,getDataByRange,getFilterDataS,getItemsByFilter
+from app import Models
+from app.database import get_db
+from app.schemas import sort,getSingle,getDataByRange,getFilterDataS,getItemsByFilter
 from typing import Annotated
 import math
 

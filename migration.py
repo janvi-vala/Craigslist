@@ -1,9 +1,16 @@
-from Data.database import SessionLocal
+from app.database import SessionLocal
 from sqlalchemy.orm import Session
-from Data import Models
+from app import Models
+from app.database import engine,Base
+
+from app.logger import logger
 import json
+
+
+Models.Base.metadata.create_all(engine)
+
 def firstTimeData():
-    with open("data/item.json","r")as f:
+    with open("json/item.json","r")as f:
         data=json.load(f)
     db:Session=SessionLocal()
     try:
@@ -17,11 +24,13 @@ def firstTimeData():
                 status=item.get("status"))
             db.add(sale_item)
         db.commit()
+        logger.info("Data inserted successfully from json/item.json")
     except Exception as e:
         db.rollback()
-        print("error in the json data add in the table")
+        logger.error(f"Error inserting JSON data into table: {e}") 
     finally :
         db.close()
+        logger.info("Database session closed") 
 
 
 if __name__=="__main__":

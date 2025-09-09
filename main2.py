@@ -1,9 +1,7 @@
 from fastapi import FastAPI
-from Data import Models
-from Data.database import engine,Base
-from Data.router import sale 
+from app import Models
+from app.router import sale,sale_json
 
 app=FastAPI()
-# verify that table is 
-Models.Base.metadata.create_all(engine)
 app.include_router(sale.router)
+app.include_router(sale_json.router)
