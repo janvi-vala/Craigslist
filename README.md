@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 
 #Create Database Tables and Load Data
-code-->python3 firstTimeData.py
+code-->python3 migration.py
 
 
 
@@ -28,10 +28,7 @@ code-->python3 firstTimeData.py
 
 **Run the Application
 
+# for running our application after the creating table 
+code--> python3 main2.py
 
-
-#Run with SQLite-based data:
-uvicorn main2:app --reload
-
-#All the tasks done with JSON can be reviewed by running:
-code-->uvicorn main:app --reload
+# that will run application on port number 10001
