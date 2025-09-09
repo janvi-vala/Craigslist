@@ -2,7 +2,6 @@ from app.database import SessionLocal
 from sqlalchemy.orm import Session
 from app import Models
 from app.database import engine,Base
-
 from app.logger import logger
 import json
 

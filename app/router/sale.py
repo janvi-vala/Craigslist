@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status,Query
 from sqlalchemy.orm import Session
 from sqlalchemy import Float, and_,or_
-
+from app.logger import logger
 from app import Models
 from app.database import get_db
 from app.schemas import sort,getSingle,getDataByRange,getFilterDataS,getItemsByFilter
@@ -31,106 +31,157 @@ def haveSine(lat1,log1,lat2,log2):
     return distance
 @router.get("/")
 def get_all_sales(q:Annotated[sort,Query()],db: Session = Depends(get_db)):
-    query = db.query(Models.Sale_item)
-    if not query:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
+    try:
+        query = db.query(Models.Sale_item)
+        if not query:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
      
-    if not hasattr(Models.Sale_item,q.criteria):
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="criteria is not found ")
+        if not hasattr(Models.Sale_item,q.criteria):
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="criteria is not found ")
     
-    sort_column = getattr(Models.Sale_item, q.criteria)
-    if q.reverse:
-        query = query.order_by(sort_column.desc()).all()
-    else:
-        query = query.order_by(sort_column.asc()).all()
+        sort_column = getattr(Models.Sale_item, q.criteria)
+        if q.reverse:
+            query = query.order_by(sort_column.desc()).all()
+        else:
+            query = query.order_by(sort_column.asc()).all()
      
-    return query
+        return query
+    except HTTPException as he:
+        logger.error(f"HTTPException in getSortedPrice: {he.detail}")
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error in getSortedPrice: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error wgetSortedPrice"
+        )
 
 
 
 
 @router.get("/getsingle")
 def getSingleItem(Q:Annotated[getSingle,Query()],db: Session = Depends(get_db)):
-    query = db.query(Models.Sale_item)
-    if not query:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
+    try:
+        query = db.query(Models.Sale_item)
+        if not query:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
         
             
-    if Q.id :
-        sale=query.filter(Models.Sale_item.id==Q.id).all()
-    if Q.location:
-        location_str = str(Q.location)   
-        sale = query.filter(Models.Sale_item.loc == location_str).first()
-    return sale 
+        if Q.id :
+            sale=query.filter(Models.Sale_item.id==Q.id).all()
+        if Q.location:
+            location_str = str(Q.location)   
+            sale = query.filter(Models.Sale_item.loc == location_str).first()
+        return sale 
+    except HTTPException as he:
+        logger.error(f"HTTPException in getSingleItem: {he.detail}")
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error in getSingleItem: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error while get single  data by id or location"
+        )
 
 
 @router.get("/getDataBasedOnRadius")
 def getDataBasedOnRange(Q:Annotated[getDataByRange,Query()],db: Session = Depends(get_db)):
-    if not (Q.radius or Q.lang or Q.lati):
-        raise HTTPException(
+    try:
+        if not (Q.radius or Q.lang or Q.lati):
+            raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="latitude, longitude, and radius are required"
         )
-    query = db.query(Models.Sale_item)
-    if not query:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
-    filter_item_by_radius=[]
-    for item in query :
-    
-        loc_value = item.loc
-
-        item_lat, item_lng = loc_value
-        distance = haveSine(Q.lati, Q.lang, item_lat, item_lng)
-        if distance <= Q.radius:
-            filter_item_by_radius.append(item)
-    return filter_item_by_radius
-    
-@router.get("/getFilterData")
-def getFilterData(Q:Annotated[getFilterDataS,Query()],db: Session = Depends(get_db)):
-    query = db.query(Models.Sale_item)
-    if Q.Status:
-          sale=query.filter(Models.Sale_item.status==Q.Status).all()
-    if Q.userId:
-          sale=query.filter(Models.Sale_item.userId==Q.userId).all()
-    if not sale:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
-    return sale
-
-
-@router.get("/getMultipleFilterData")
-def getMultipleFilterData(Q:Annotated[getItemsByFilter,Query()],db: Session = Depends(get_db)):
-    query=db.query(Models.Sale_item)
-    if Q.filterby == "price":
-       
-        if Q.lower is None or Q.upper is None:
-            raise HTTPException(status_code=400, detail="Price filter requires 'lower' and 'upper'")
-        result = query.filter(
-        Models.Sale_item.price >= Q.lower,
-        Models.Sale_item.price <= Q.upper).all()
-        return result
-    elif Q.filterby == "radius":
+        query = db.query(Models.Sale_item)
+        if not query:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
         filter_item_by_radius=[]
-        if Q.radius is None or Q.latitude is None or Q.longitude is None:
-            raise HTTPException(status_code=400, detail="Radius filter requires 'radius', 'latitude' and 'longitude'")
-        for item in query.all():
+        for item in query :
     
             loc_value = item.loc
 
             item_lat, item_lng = loc_value
             distance = haveSine(Q.lati, Q.lang, item_lat, item_lng)
             if distance <= Q.radius:
-                    filter_item_by_radius.append(item)
+                filter_item_by_radius.append(item)
         return filter_item_by_radius
+    except HTTPException as he:
+       logger.error(f"HTTPException in getDataBasedOnRadius: {he.detail}")
+       raise
+    except Exception as e:
+        logger.error(f"Unexpected error in  getDataBasedOnRadius by status and userID: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error while  getDataBasedOnRadius"
+        )
+    
+@router.get("/getFilterData")
+def getFilterData(Q:Annotated[getFilterDataS,Query()],db: Session = Depends(get_db)):
+    try:
+        query = db.query(Models.Sale_item)
+        if Q.Status:
+            sale=query.filter(Models.Sale_item.status==Q.Status).all()
+        if Q.userId:
+            sale=query.filter(Models.Sale_item.userId==Q.userId).all()
+        if not sale:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
+        return sale
+    except HTTPException as he:
+        logger.error(f"HTTPException in getFilterData by status and userID: {he.detail}")
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error in  getFilterData by status and userID: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error while  getFilterData by status and userID"
+        )
+
+
+@router.get("/getMultipleFilterData")
+def getMultipleFilterData(Q:Annotated[getItemsByFilter,Query()],db: Session = Depends(get_db)):
+    try:
+        query=db.query(Models.Sale_item)
+        if Q.filterby == "price":
+       
+            if Q.lower is None or Q.upper is None:
+                raise HTTPException(status_code=400, detail="Price filter requires 'lower' and 'upper'")
+            result = query.filter(
+            Models.Sale_item.price >= Q.lower,
+            Models.Sale_item.price <= Q.upper).all()
+            return result
+        elif Q.filterby == "radius":
+            filter_item_by_radius=[]
+            if Q.radius is None or Q.latitude is None or Q.longitude is None:
+                raise HTTPException(status_code=400, detail="Radius filter requires 'radius', 'latitude' and 'longitude'")
+            for item in query.all():
+    
+                loc_value = item.loc
+
+                item_lat, item_lng = loc_value
+                distance = haveSine(Q.lati, Q.lang, item_lat, item_lng)
+                if distance <= Q.radius:
+                        filter_item_by_radius.append(item)
+            return filter_item_by_radius
     
 
-    elif Q.filterby == "description":
+        elif Q.filterby == "description":
         # query=db.query(Models.Sale_item)
-        if not Q.words:
-            raise HTTPException(status_code=400, detail="Description filter requires 'words'")
+            if not Q.words:
+                raise HTTPException(status_code=400, detail="Description filter requires 'words'")
       
         
-        search_words = [w.lower() for w in Q.words]
-        filters = [Models.Sale_item.description.ilike(f"%{word}%") for word in search_words]
-        query = query.filter(or_(*filters))
-        results = query.all()
-        return results
+            search_words = [w.lower() for w in Q.words]
+            filters = [Models.Sale_item.description.ilike(f"%{word}%") for word in search_words]
+            query = query.filter(or_(*filters))
+            results = query.all()
+            return results
+    except HTTPException as he:
+       logger.error(f"HTTPException in get multiple filter data by price ,description and radius: {he.detail}")
+       raise
+    except Exception as e:
+        logger.error(f"Unexpected error in get multiple filter data by price ,description and radius: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error while in get multiple filter data by price ,description and radius"
+        )
+    
