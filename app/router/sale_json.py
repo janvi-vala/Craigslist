@@ -104,12 +104,23 @@ def getSingleItem(Q:Annotated[getSingle,Query()]):
 @router.get("/sales/getFilterData")
 def getFilterData(Q:Annotated[getFilterDataS,Query()]):
     try:
+        print("json load")
         data=loadData()
     except Exception as e:
         logger.error(f"Failed to load data in getFilterData by status and by userId: {e}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,detail='load data is throw the error : {e}')
     try:
-        if Q.Status:
+        if Q.Status and Q.userId:
+            filter_item=[]
+            for item in data:
+                if item.get("status") is None:
+                    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="status is undefind in  your list of data")
+                else:
+                    if item.get('status')==Q.Status and item.get('userId')==Q.userId:
+                        filter_item.append(item)
+            logger.info(f"get Filter Data by {Q.Status}")
+            return filter_item   
+        elif Q.Status:
             filter_item=[]
             for item in data:
                 if item.get("status") is None:
@@ -118,8 +129,8 @@ def getFilterData(Q:Annotated[getFilterDataS,Query()]):
                     if item.get('status')==Q.Status:
                         filter_item.append(item)
             logger.info(f"get Filter Data by {Q.Status}")
-            return filter_item      
-        if Q.userId:
+            return filter_item          
+        elif Q.userId:
             filter_item=[]
             for item in data:
                 if item.get("userId") is None:
@@ -185,8 +196,7 @@ def getItemByFilter(Q:Annotated[getItemsByFilter,Query()]):
     result1=[]
     try:
         if Q.filterby == "price":
-            if Q.lower is None or Q.upper is None:
-                raise HTTPException(status_code=400, detail="Price filter requires 'lower' and 'upper'")
+            
         
             for item in filtered_items:
                 if item.get("price"):

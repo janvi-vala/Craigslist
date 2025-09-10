@@ -19,10 +19,10 @@ class getDataByRange(BaseModel):
     lang:float
     lati:float
 class getItemsByFilter(BaseModel):
-    filterby: str
+    filterby: str="price"
    
-    lower: Optional[float] = None
-    upper: Optional[float] = None
+    lower: Optional[float] = -1
+    upper: Optional[float] = 1000
     
   
     radius: Optional[float] = None
@@ -30,4 +30,4 @@ class getItemsByFilter(BaseModel):
     longitude: Optional[float] = None
     
   
-    words: Optional[List[str]] = None
+    words: Optional[List[str]] = "iphon"

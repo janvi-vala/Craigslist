@@ -118,13 +118,19 @@ def getDataBasedOnRange(Q:Annotated[getDataByRange,Query()],db: Session = Depend
 @router.get("/getFilterData")
 def getFilterData(Q:Annotated[getFilterDataS,Query()],db: Session = Depends(get_db)):
     try:
+        print("this icall")
         query = db.query(Models.Sale_item)
-        if Q.Status:
+        if Q.Status and Q.userId :
+            sale=query.filter(and_(Models.Sale_item.status==Q.Status,Models.Sale_item.userId==Q.userId)).all()
+            print("result")
+        elif Q.Status:
             sale=query.filter(Models.Sale_item.status==Q.Status).all()
-        if Q.userId:
+            print("status")
+        elif Q.userId:
             sale=query.filter(Models.Sale_item.userId==Q.userId).all()
-        if not sale:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="data is not found")
+            print("Id")
+        else:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail="please enter the valide data")
         return sale
     except HTTPException as he:
         logger.error(f"HTTPException in getFilterData by status and userID: {he.detail}")

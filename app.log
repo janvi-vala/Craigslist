@@ -29,3 +29,306 @@
 2025-09-09 15:09:03,711 - INFO - sqlalchemy.engine.Engine - PRAGMA main.table_info("sale-items")
 2025-09-09 15:09:03,711 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
 2025-09-09 15:09:03,711 - INFO - sqlalchemy.engine.Engine - COMMIT
+2025-09-09 17:09:02,932 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-09 17:09:02,934 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" ORDER BY "sale-items".price DESC
+2025-09-09 17:09:02,934 - INFO - sqlalchemy.engine.Engine - [generated in 0.00028s] ()
+2025-09-09 17:09:02,939 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:49:08,118 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:49:08,120 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" ORDER BY "sale-items".price DESC
+2025-09-10 12:49:08,120 - INFO - sqlalchemy.engine.Engine - [generated in 0.00016s] ()
+2025-09-10 12:49:08,124 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:54:36,999 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:54:37,000 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:54:37,000 - INFO - sqlalchemy.engine.Engine - [generated in 0.00028s] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 12:54:37,001 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:54:48,970 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:54:48,970 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:54:48,970 - INFO - sqlalchemy.engine.Engine - [cached since 11.97s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 12:54:48,971 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:54:57,631 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:54:57,631 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:54:57,632 - INFO - sqlalchemy.engine.Engine - [cached since 20.63s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:54:57,632 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:57:46,880 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:57:46,880 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:57:46,880 - INFO - sqlalchemy.engine.Engine - [cached since 189.9s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:57:46,881 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".loc = ?
+ LIMIT ? OFFSET ?
+2025-09-10 12:57:46,881 - INFO - sqlalchemy.engine.Engine - [generated in 0.00012s] ('[36.15517247887697, -115.14484161837342]', 1, 0)
+2025-09-10 12:57:46,882 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:58:01,354 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:58:01,354 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:58:01,354 - INFO - sqlalchemy.engine.Engine - [cached since 204.4s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:58:01,354 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".loc = ?
+ LIMIT ? OFFSET ?
+2025-09-10 12:58:01,355 - INFO - sqlalchemy.engine.Engine - [cached since 14.47s ago] ('[36.15517247887697, -115.14484161837342]', 1, 0)
+2025-09-10 12:58:01,355 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:58:01,606 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:58:01,606 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:58:01,606 - INFO - sqlalchemy.engine.Engine - [cached since 204.6s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:58:01,607 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".loc = ?
+ LIMIT ? OFFSET ?
+2025-09-10 12:58:01,607 - INFO - sqlalchemy.engine.Engine - [cached since 14.73s ago] ('[36.15517247887697, -115.14484161837342]', 1, 0)
+2025-09-10 12:58:01,608 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:58:01,905 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:58:01,906 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:58:01,906 - INFO - sqlalchemy.engine.Engine - [cached since 204.9s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:58:01,906 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".loc = ?
+ LIMIT ? OFFSET ?
+2025-09-10 12:58:01,906 - INFO - sqlalchemy.engine.Engine - [cached since 15.03s ago] ('[36.15517247887697, -115.14484161837342]', 1, 0)
+2025-09-10 12:58:01,907 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:58:02,293 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:58:02,294 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:58:02,294 - INFO - sqlalchemy.engine.Engine - [cached since 205.3s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:58:02,294 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".loc = ?
+ LIMIT ? OFFSET ?
+2025-09-10 12:58:02,295 - INFO - sqlalchemy.engine.Engine - [cached since 15.41s ago] ('[36.15517247887697, -115.14484161837342]', 1, 0)
+2025-09-10 12:58:02,295 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 12:58:02,756 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 12:58:02,756 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".id = ?
+2025-09-10 12:58:02,756 - INFO - sqlalchemy.engine.Engine - [cached since 205.8s ago] ('53fbb9b6456e74467b000004',)
+2025-09-10 12:58:02,757 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".loc = ?
+ LIMIT ? OFFSET ?
+2025-09-10 12:58:02,757 - INFO - sqlalchemy.engine.Engine - [cached since 15.88s ago] ('[36.15517247887697, -115.14484161837342]', 1, 0)
+2025-09-10 12:58:02,758 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 13:10:40,518 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:16,588 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:30,602 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:30,736 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:30,868 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,003 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,125 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,265 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,433 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,554 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,729 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:31,878 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:32,036 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:32,160 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:32,323 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:32,461 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:32,675 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:32,848 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:33,019 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:33,175 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:33,302 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:11:33,491 - INFO - app - Get single by 53fbb9b6456e74467b000004
+2025-09-10 13:25:09,264 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 13:25:09,265 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 13:25:09,265 - INFO - sqlalchemy.engine.Engine - [generated in 0.00015s] ('tos',)
+2025-09-10 13:25:09,268 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 13:25:32,774 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 13:25:32,775 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 13:25:32,775 - INFO - sqlalchemy.engine.Engine - [generated in 0.00025s] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 13:25:32,777 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 13:25:45,538 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 13:25:45,539 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 13:25:45,539 - INFO - sqlalchemy.engine.Engine - [cached since 36.27s ago] ('tos',)
+2025-09-10 13:25:45,541 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 13:25:45,541 - INFO - sqlalchemy.engine.Engine - [cached since 12.77s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 13:25:45,542 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 13:25:47,844 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 13:25:47,844 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 13:25:47,845 - INFO - sqlalchemy.engine.Engine - [cached since 38.58s ago] ('tos',)
+2025-09-10 13:25:47,847 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 13:25:47,847 - INFO - sqlalchemy.engine.Engine - [cached since 15.07s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 13:25:47,848 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:01,453 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:01,453 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:01,453 - INFO - sqlalchemy.engine.Engine - [cached since 801.5s ago] ('tos',)
+2025-09-10 14:20:01,455 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:01,455 - INFO - sqlalchemy.engine.Engine - [cached since 778s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:01,456 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:27,277 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:27,278 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:27,278 - INFO - sqlalchemy.engine.Engine - [cached since 827.3s ago] ('tos',)
+2025-09-10 14:20:27,279 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:27,279 - INFO - sqlalchemy.engine.Engine - [cached since 803.8s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:27,280 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:54,067 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:54,067 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:54,067 - INFO - sqlalchemy.engine.Engine - [cached since 854.1s ago] ('tos',)
+2025-09-10 14:20:54,069 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:54,069 - INFO - sqlalchemy.engine.Engine - [cached since 830.6s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:54,070 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:54,232 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:54,233 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:54,233 - INFO - sqlalchemy.engine.Engine - [cached since 854.3s ago] ('tos',)
+2025-09-10 14:20:54,234 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:54,235 - INFO - sqlalchemy.engine.Engine - [cached since 830.8s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:54,236 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:54,391 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:54,391 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:54,391 - INFO - sqlalchemy.engine.Engine - [cached since 854.4s ago] ('tos',)
+2025-09-10 14:20:54,392 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:54,393 - INFO - sqlalchemy.engine.Engine - [cached since 830.9s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:54,393 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:54,590 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:54,590 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:54,590 - INFO - sqlalchemy.engine.Engine - [cached since 854.6s ago] ('tos',)
+2025-09-10 14:20:54,592 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:54,592 - INFO - sqlalchemy.engine.Engine - [cached since 831.1s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:54,594 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:20:54,770 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:20:54,771 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:20:54,771 - INFO - sqlalchemy.engine.Engine - [cached since 854.8s ago] ('tos',)
+2025-09-10 14:20:54,772 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:20:54,772 - INFO - sqlalchemy.engine.Engine - [cached since 831.3s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:20:54,773 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:21:24,476 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:21:24,476 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:21:24,476 - INFO - sqlalchemy.engine.Engine - [cached since 884.5s ago] ('tos',)
+2025-09-10 14:21:24,478 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:21:24,478 - INFO - sqlalchemy.engine.Engine - [cached since 861s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:21:24,479 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:22:24,413 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:22:24,413 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:22:24,413 - INFO - sqlalchemy.engine.Engine - [cached since 944.5s ago] ('tos',)
+2025-09-10 14:22:24,414 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:22:24,414 - INFO - sqlalchemy.engine.Engine - [cached since 921s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:22:24,415 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:27:18,657 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:27:18,657 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:27:18,657 - INFO - sqlalchemy.engine.Engine - [cached since 1239s ago] ('tos',)
+2025-09-10 14:27:18,658 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:27:18,658 - INFO - sqlalchemy.engine.Engine - [cached since 1215s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:27:18,659 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:27:19,554 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:27:19,555 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:27:19,555 - INFO - sqlalchemy.engine.Engine - [cached since 1240s ago] ('tos',)
+2025-09-10 14:27:19,557 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:27:19,557 - INFO - sqlalchemy.engine.Engine - [cached since 1216s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:27:19,558 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:30:09,157 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:30:09,158 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:30:09,158 - INFO - sqlalchemy.engine.Engine - [cached since 1409s ago] ('tos',)
+2025-09-10 14:30:09,159 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:30:09,159 - INFO - sqlalchemy.engine.Engine - [cached since 1386s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:30:09,161 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:30:39,872 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:30:39,872 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:30:39,873 - INFO - sqlalchemy.engine.Engine - [cached since 1440s ago] ('tos',)
+2025-09-10 14:30:39,874 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items"."userId" = ?
+2025-09-10 14:30:39,875 - INFO - sqlalchemy.engine.Engine - [cached since 1416s ago] ('53f6c9c96d1944af0b00000b',)
+2025-09-10 14:30:39,876 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:31:54,417 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:31:54,421 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ? AND "sale-items"."userId" = ?
+2025-09-10 14:31:54,421 - INFO - sqlalchemy.engine.Engine - [generated in 0.00038s] ('tos', '53f6c9c96d1944af0b00000b')
+2025-09-10 14:31:54,423 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:32:16,931 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:32:30,979 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ? AND "sale-items"."userId" = ?
+2025-09-10 14:32:30,980 - INFO - sqlalchemy.engine.Engine - [cached since 36.56s ago] ('tos', '53f6c9c96d1944af0b00000b')
+2025-09-10 14:32:30,981 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:33:12,551 - ERROR - app - HTTPException in getFilterData by status and userID: please enter the valide data
+2025-09-10 14:33:19,557 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:33:19,558 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ?
+2025-09-10 14:33:19,558 - INFO - sqlalchemy.engine.Engine - [generated in 0.00017s] ('tos',)
+2025-09-10 14:33:19,561 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2025-09-10 14:33:30,728 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2025-09-10 14:33:30,729 - INFO - sqlalchemy.engine.Engine - SELECT "sale-items".id AS "sale-items_id", "sale-items".loc AS "sale-items_loc", "sale-items"."userId" AS "sale-items_userId", "sale-items".description AS "sale-items_description", "sale-items".price AS "sale-items_price", "sale-items".status AS "sale-items_status" 
+FROM "sale-items" 
+WHERE "sale-items".status = ? AND "sale-items"."userId" = ?
+2025-09-10 14:33:30,729 - INFO - sqlalchemy.engine.Engine - [generated in 0.00020s] ('tos', '53f6c9c96d1944af0b00000b')
+2025-09-10 14:33:30,730 - INFO - sqlalchemy.engine.Engine - ROLLBACK
